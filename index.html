@@ -26,33 +26,43 @@
     <div class="d-flex h-100 box">
       <div class="align-self-center mx-auto">
         <h1 class="display-6">MIS HORAS <br />TRABAJADAS</h1>
-        <div class="form-group mb-3">
+        <div class="form-group mb-1">
+          <small class="text-muted">
+            Horas de ingreso
+          </small>
           <input
             type="time"
             id="hora-ingreso"
             class="form-control form-control-lg"
+            placeholder="Ejemplo: 13:01"
             required
           />
         </div>
-        <div class="form-group mb-3">
+        <div class="form-group mb-1">
+          <small class="text-muted">
+            Horas trabajadas
+          </small>
           <input
             type="number"
             id="horas-trabajadas"
             min="1"
             max="24"
             class="form-control form-control-lg"
-            placeholder="Horas trabajadas"
+            placeholder="Ejemplo: 2"
             required
           />
         </div>
-        <div class="form-group mb-3">
+        <div class="form-group mb-2">
+          <small class="text-muted">
+            Horas break
+          </small>
           <input
             type="number"
             id="horas-break"
             min="1"
             max="24"
             class="form-control form-control-lg"
-            placeholder="Horas break"
+            placeholder="Ejemplo: 1"
             required
           />
         </div>
@@ -66,7 +76,7 @@
           </button>
         </div>
         <div class="form-group mb-3 text-center">
-          <h3>Hora de Salida:</h3>
+          <p class="fs-4">Hora de Salida 🐥:</p>
           <h2 id="hora-salida"></h2>
         </div>
       </div>

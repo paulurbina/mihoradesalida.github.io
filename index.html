@@ -25,38 +25,50 @@
   <body>
     <div class="d-flex h-100 box">
       <div class="align-self-center mx-auto">
-          <h1 class="display-6">MIS HORAS <br />TRABAJADAS</h1>
-          <div class="form-group mb-3">
-            <input
-              type="time"
-              id="hora-ingreso"
-              class="form-control form-control-lg"
-              required
-            />
-          </div>
-          <div class="form-group mb-3">
-            <input
-              type="number"
-              id="horas-trabajadas"
-              min="1"
-              max="24"
-              class="form-control form-control-lg"
-              placeholder="Horas trabajadas"
-              required
-            />
-          </div>
-          <div class="form-group mb-3">
-            <button
-              class="btn btn-primary btn-lg"
-              onclick="calcularHoraSalida()"
-            >
-              Calcular Hora de Salida
-            </button>
-          </div>
-          <div class="form-group mb-3 text-center">
-            <h3>Hora de Salida:</h3>
-            <h2 id="hora-salida"></h2>
-          </div>
+        <h1 class="display-6">MIS HORAS <br />TRABAJADAS</h1>
+        <div class="form-group mb-3">
+          <input
+            type="time"
+            id="hora-ingreso"
+            class="form-control form-control-lg"
+            required
+          />
+        </div>
+        <div class="form-group mb-3">
+          <input
+            type="number"
+            id="horas-trabajadas"
+            min="1"
+            max="24"
+            class="form-control form-control-lg"
+            placeholder="Horas trabajadas"
+            required
+          />
+        </div>
+        <div class="form-group mb-3">
+          <input
+            type="number"
+            id="horas-break"
+            min="1"
+            max="24"
+            class="form-control form-control-lg"
+            placeholder="Horas break"
+            required
+          />
+        </div>
+        <div class="form-group mb-3">
+          <button
+            class="btn btn-primary"
+            type="button"
+            onclick="calcularHoraSalida()"
+          >
+            Calcular horas
+          </button>
+        </div>
+        <div class="form-group mb-3 text-center">
+          <h3>Hora de Salida:</h3>
+          <h2 id="hora-salida"></h2>
+        </div>
       </div>
     </div>
 
@@ -65,13 +77,16 @@
         // Obtener los valores de los campos de entrada
         let horaIngreso = document.getElementById("hora-ingreso").value;
         let horasTrabajadas = document.getElementById("horas-trabajadas").value;
+        let horasBreak = document.getElementById("horas-break").value;
 
         // Crear un objeto de fecha a partir de la hora de ingreso
         let fechaIngreso = new Date("2023-01-01T" + horaIngreso);
 
         // Sumar las horas trabajadas a la fecha de ingreso
         fechaIngreso.setTime(
-          fechaIngreso.getTime() + horasTrabajadas * 60 * 60 * 1000
+          fechaIngreso.getTime() +
+            horasTrabajadas * 60 * 60 * 1000 +
+            horasBreak * 60 * 60 * 1000
         );
 
         // Formatear la fecha de salida como "HH:MM"
